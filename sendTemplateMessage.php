@@ -7,12 +7,13 @@
 
 require_once("db.func.php");
 require_once("api.func.php");
+require_once("public.func.php");
 
 if(isset($_POST) && $_POST){
 	$accessToken=$_POST['accessToken'];
 	$openId=$_POST['openId'];
 	$templateId=$_POST['templateId'];
-	$page=isset($_POST['page'])?$_POST['page']:'/pages/games/index';
+	$page=isset($_POST['page'])?$_POST['page']:'pages/auth/index';
 	$formId=$_POST['formId'];
 	$data=$_POST['data'];
 
@@ -34,6 +35,8 @@ if(isset($_POST) && $_POST){
 	
 	// 处理获取到的数据
 	$data=json_decode($output,TRUE);
+
+	insertLog($dbcon,"小程序-消息","用户[".$openId."]|模板[".$templateId."]|表单ID[".$formId."]发送模板消息",getIP());
 
 	$ret=returnApiData(1,"success",$output);
 	echo $ret;

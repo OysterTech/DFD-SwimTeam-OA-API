@@ -8,6 +8,7 @@
 
 require_once("db.func.php");
 require_once("api.func.php");
+require_once("public.func.php");
 
 if(isset($_POST) && $_POST){
 	$successCount=0;
@@ -23,6 +24,7 @@ if(isset($_POST) && $_POST){
 	}
 	
 	if($successCount>=1){
+		insertLog($dbcon,"小程序-比赛","运动员[".$AthID."]报名比赛[".$GamesID."]",getIP());
 		$ret=returnApiData(1,"success");
 	}else{
 		$ret=returnApiData(0,"unknown Error");	

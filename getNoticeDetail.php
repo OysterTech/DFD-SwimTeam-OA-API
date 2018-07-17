@@ -16,7 +16,7 @@ if(isset($_GET['NoticeID']) && $_GET['NoticeID']>=1){
 	}else{
 		$ret=returnApiData(0,"no Notice");	
 	}
-}
 
-echo $ret;
+	echo $ret;
+}
 ?>

@@ -17,7 +17,7 @@ if(isset($_GET['GamesID']) && $_GET['GamesID']>=1 && isset($_GET['YearGroup']) &
 	}else{
 		$ret=returnApiData(0,"no Item");	
 	}
-}
 
-echo $ret;
+	echo $ret;
+}
 ?>
