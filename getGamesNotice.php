@@ -14,7 +14,6 @@ if(isset($_GET['GamesID']) && $_GET['GamesID']>=1){
 	$rs=PDOQuery($dbcon,"SELECT NoticeID,Type,Title FROM games_notice WHERE GamesID=? AND isDelete=0",[$GamesID],[PDO::PARAM_STR]);
 	
 	if($rs[1]>=1){
-		insertLog($dbcon,"小程序-比赛","获取比赛通知|GID:".$GamesID,getIP());
 		$ret=returnApiData(1,"success",$rs[0]);
 	}else{
 		$ret=returnApiData(0,"no Notice");	
