@@ -38,7 +38,7 @@ if(isset($_POST) && $_POST){
 
 	insertLog($dbcon,"小程序-消息","用户[".$openId."]|模板[".$templateId."]|表单ID[".$formId."]发送模板消息",getIP());
 
-	$ret=returnApiData(1,"success",$output);
+	$ret=returnApiData(1,"success",['data'=>$output]);
 	echo $ret;
 }
 ?>
